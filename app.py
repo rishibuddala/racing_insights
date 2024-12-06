@@ -48,17 +48,6 @@ WHERE rs.position = 1 AND r.year = 2023
 GROUP BY d.driverId, d.forename, d.surname
 ORDER BY total_wins DESC
 LIMIT 1;
-    """,
-    "Average Lap Time for Race 5": """
-        SELECT d.forename || ' ' || d.surname AS driver_name, 
-       AVG(lt.milliseconds) AS avg_lap_time
-FROM lap_times lt
-JOIN drivers d ON lt.driverId = d.driverId
-JOIN races r ON lt.raceId = r.raceId
-WHERE r.raceId = 5
-GROUP BY d.driverId, d.forename, d.surname
-ORDER BY avg_lap_time ASC;
-
     """
 }
 
